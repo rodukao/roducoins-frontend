@@ -1,34 +1,41 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
-import { AuthContext } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const {login} = useContext(AuthContext);
-    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await axios.post('http://localhost:5000/api/auth/login', {
+            await axios.post('http://localhost:5000/api/auth/register', {
+                username,
                 email,
-                password,
+                password
             });
-            login(res.data.token);
-            navigate('/dashboard');
-        } catch(err){
-            setMessage(err.responde.data.error || 'Erro ao fazer login.');
+            setMessage('Registro realizado com sucesso! Você pode fazer login agora.');
+            setUsername('');
+            setEmail('');
+            setPassword('');
+        } catch (err) {
+            setMessage(err.response.data.error || 'Erro ao registrar.');
         }
     };
 
     return(
         <div>
-            <h2>Login</h2>
+            <h2>Registrar</h2>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit}>
+                <input
+                    type='text'
+                    placeholder='Nome de usuário'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
                 <input
                     type='email'
                     placeholder='E-mail'
@@ -43,10 +50,10 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type='submit'>Entrar</button>
+                <button type='submit'>Registrar</button>
             </form>
         </div>
     );
 };
 
-export default Login;
+export default Register;
