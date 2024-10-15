@@ -1,30 +1,29 @@
-// src/pages/Dashboard.js
-
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import api from '../api';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const { authenticated, logout } = useContext(AuthContext);
-  const [userData, setUserData] = useState(null);
+  const { authenticated, logout, userData, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!authenticated) {
+    if (!loading && !authenticated) {
       navigate('/login');
-    } else {
-      api
-        .get('/user/profile')
-        .then((res) => setUserData(res.data))
-        .catch((err) => console.error(err));
     }
-  }, [authenticated, navigate]);
+  }, [authenticated, loading, navigate]);
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (!authenticated) {
+    return null; // Ou você pode retornar um componente indicando que o usuário não está autenticado
+  }
 
   return (
     <div>
@@ -33,10 +32,15 @@ const Dashboard = () => {
         <div>
           <p>Bem-vindo, {userData.username}!</p>
           <p>Seu saldo de Roducoins: {userData.roducoins}</p>
+          <hr />
+          <Link to="/game/config">Jogar e Ganhar Roducoins</Link> <br />
+          <Link to="/ads">Assistir Anúncios e Ganhar Roducoins</Link>
+          <br />
+          <hr />
           <button onClick={handleLogout}>Sair</button>
         </div>
       ) : (
-        <p>Carregando...</p>
+        <div>Carregando dados do usuário...</div>
       )}
     </div>
   );
