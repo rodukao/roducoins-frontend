@@ -20,7 +20,8 @@ const Login = () => {
             login(res.data.token);
             navigate('/dashboard');
         } catch(err){
-            setMessage(err.responde.data.error || 'Erro ao fazer login.');
+            console.log('Usuário não encontrado')
+            setMessage(err.response.data.error || 'Erro ao fazer login.');
         }
     };
 
