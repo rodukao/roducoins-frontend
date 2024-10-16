@@ -13,7 +13,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await axios.post('https://roducoins.onrender.com/api/auth/login', {
+            const res = await axios.post('https://roducoins-backend.onrender.com/api/auth/login', {
                 email,
                 password,
             });
