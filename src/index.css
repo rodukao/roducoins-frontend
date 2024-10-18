@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@100..900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #373737;
+  width: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -36,3 +36,90 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  text-align: center;
+}
+
+header {
+  padding: 10px;
+  text-align: left;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+}
+
+.coin {
+  color: #ffd700;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.start-btn {
+  margin-top: 30px;
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.start-btn:hover {
+  background-color: #ff4081;
+}
+
+footer {
+  background-color: #3d3d3d;
+  padding: 20px;
+}
+
+footer nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+.social {
+  margin-top: 10px;
+}
+
+.social-icon {
+  margin: 0 5px;
+  font-size: 1.2rem;
+}
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
@@ -9,6 +9,8 @@ import Ads from './pages/Ads';
 import WatchAd from './pages/WatchAd';
 import GameConfig from './pages/GameConfig';
 import GamePlay from './pages/GamePlay';
+
+console.log('REACT_APP_TEST_VARIABLE:', process.env.REACT_APP_TEST_VARIABLE);
 
 function App(){
   return(
