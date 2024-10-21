@@ -26,7 +26,7 @@ const Register = ({ onSwitchToLogin }) => {
 
     return(
         <div className='window'>
-            <img src='/images/logo.png'></img>
+            <img alt='roducoins-logo' src='/images/logo.png'></img>
             <h2>Cadastre-se na Roducoins</h2>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit}>
