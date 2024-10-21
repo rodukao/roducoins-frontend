@@ -36,7 +36,7 @@ const Home = () => {
       </header>
       <main className="main">
         <h2>O único lugar onde não dá para perder!</h2>
-        <a className="iniciar-button">SAIBA MAIS</a>
+        <button className="iniciar-button" onClick={openRegisterModal}>SAIBA MAIS</button>
         <div className="main-effect"></div>
       </main>
       <footer className="footer">
