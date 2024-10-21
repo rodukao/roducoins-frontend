@@ -8,13 +8,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!loading && !authenticated) {
-      navigate('/login');
+      navigate('/');
     }
   }, [authenticated, loading, navigate]);
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   };
 
   if (loading) {

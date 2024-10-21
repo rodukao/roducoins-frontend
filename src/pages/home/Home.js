@@ -25,6 +25,16 @@ const Home = () => {
     setRegisterModalIsOpen(false);
   };
 
+  const switchToRegisterModal = () => {
+    setLoginModalIsOpen(false);
+    setRegisterModalIsOpen(true);
+  };
+
+  const switchToLoginModal = () => {
+    setRegisterModalIsOpen(false);
+    setLoginModalIsOpen(true);
+  };
+
   return (
     <>
       <header>
@@ -53,13 +63,27 @@ const Home = () => {
       </footer>
 
       {/* Modal de Login */}
-      <Modal isOpen={loginModalIsOpen} onClose={closeLoginModal}>
-        <LoginForm />
+      <Modal
+        isOpen={loginModalIsOpen}
+        onRequestClose={closeLoginModal}
+        contentLabel="Login Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <button onClick={closeLoginModal} className="modal-close-button">&times;</button>
+        <LoginForm onSwitchToRegister={switchToRegisterModal} />
       </Modal>
 
       {/* Modal de Registro */}
-      <Modal isOpen={registerModalIsOpen} onClose={closeRegisterModal}>
-        <RegisterForm />
+      <Modal
+        isOpen={registerModalIsOpen}
+        onRequestClose={closeRegisterModal}
+        contentLabel="Register Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <button onClick={closeRegisterModal} className="modal-close-button">&times;</button>
+        <RegisterForm onSwitchToLogin={switchToLoginModal} />
       </Modal>
     </>
   );

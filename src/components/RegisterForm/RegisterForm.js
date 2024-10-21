@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const Register = () => {
+const Register = ({ onSwitchToLogin }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,8 +25,9 @@ const Register = () => {
     };
 
     return(
-        <div>
-            <h2>Registrar</h2>
+        <div className='window'>
+            <img src='/images/logo.png'></img>
+            <h2>Cadastre-se na Roducoins</h2>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit}>
                 <input
@@ -50,7 +51,10 @@ const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type='submit'>Registrar</button>
+                <button type='submit'>Comece já!</button>
+                <p className='sem-conta'>
+                    Já tem uma conta? <button type="button" className='crie-sua-conta' onClick={onSwitchToLogin}>Faça login!</button>
+                </p>
             </form>
         </div>
     );

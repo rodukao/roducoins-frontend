@@ -19,7 +19,7 @@
   }
   
   .modal {
-    background: #fff;
+    background: #282c34;
     padding: 40px;
     max-width: 500px;
     width: 90%;
@@ -35,6 +35,7 @@
     border: none;
     font-size: 30px;
     cursor: pointer;
+    color: white;
   }
   
   .modal-close-button:focus {

@@ -1,0 +1,78 @@
+.window{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.window img{
+    max-width: 50%;
+}
+
+.window h2{
+    color: white;
+    font-family: "Asap", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+form input{
+    padding: 15px;
+    background-color: #17191d;
+    border: none;
+    border-radius: 5px;
+    font-size: .8em;
+    font-family: "Asap", sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+form input::placeholder{
+    color: rgb(201, 201, 201);
+}
+
+form span{
+    color: #838fa5;
+    font-size: .8em;
+    font-weight: 600;
+    font-family: "Asap", sans-serif;
+}
+
+form button{
+    margin-top: 20px;
+    padding: 15px;
+    color: white;
+    background-color: #FB0D50;
+    font-weight: 600;
+    font-family: "Asap", sans-serif;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sem-conta{
+    text-align: center;
+    color: white;
+    font-size: .9em;
+    font-family: "Asap", sans-serif;
+}
+
+.crie-sua-conta {
+    background: none;
+    border: none;
+    color: #838fa5;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: "Asap", sans-serif;
+    padding: 0;
+  }

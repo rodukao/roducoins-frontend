@@ -3,7 +3,9 @@ import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+import './LoginForm.css';
+
+const LoginForm = ({ onSwitchToRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -26,8 +28,9 @@ const LoginForm = () => {
     };
 
     return(
-        <div>
-            <h2>Login</h2>
+        <div className='window'>
+            <img src='/images/logo.png'></img>
+            <h2>Faça login em sua conta</h2>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit}>
                 <input
@@ -44,7 +47,9 @@ const LoginForm = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                <span>Esqueci a minha senha</span>
                 <button type='submit'>Entrar</button>
+                <p className='sem-conta'>Ainda não tem uma conta? <button type="button" className='crie-sua-conta' onClick={onSwitchToRegister}>Crie uma agora!</button></p>
             </form>
         </div>
     );
