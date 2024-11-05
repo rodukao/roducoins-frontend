@@ -4,6 +4,11 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  padding: 60px 0;
+}
+
+.logo-roducoins{
+  max-width: 280px;
 }
 
 .app-logo {

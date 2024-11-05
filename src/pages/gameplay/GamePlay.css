@@ -1,0 +1,29 @@
+.jogo-main{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.attempts-container {
+    display: flex;
+    gap: 5px; /* Ajuste o espaçamento entre os círculos conforme necessário */
+    margin: 10px 0;
+  }
+  
+  .attempt-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  
+  .attempt-circle.remaining {
+    background-color: green;
+  }
+  
+  .attempt-circle.used {
+    background-color: red;
+  }

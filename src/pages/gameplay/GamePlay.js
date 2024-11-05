@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import api from '../api';
-import { AuthContext } from '../context/AuthContext';
+import api from '../../api';
+import { AuthContext } from '../../context/AuthContext';
+import './GamePlay.css';
 
 const GamePlay = () => {
   const location = useLocation();
@@ -16,20 +17,16 @@ const GamePlay = () => {
 
   useEffect(() => {
     console.log('location.state:', location.state);
-    // Verificar se recebemos o gameId e gameData via state
     if (location.state && location.state.gameId && location.state.gameData) {
       setGameId(location.state.gameId);
       setGameData(location.state.gameData);
     } else {
-      // Se não, redirecionar de volta para a configuração do jogo
       navigate('/game/config');
     }
   }, [location.state, navigate]);
 
-  // Aqui adicionamos o useEffect para atualizar os dados do usuário quando o jogo termina
   useEffect(() => {
     if (gameData && gameData.gameOver) {
-      // Atualizar os dados do usuário
       fetchUserData();
     }
   }, [gameData, fetchUserData]);
@@ -51,10 +48,6 @@ const GamePlay = () => {
       setGameData(response.data.gameData);
       setMessage(response.data.message);
       setGuessedLetter('');
-
-      if (response.data.gameData.gameOver) {
-        // Se o jogo terminou, você pode implementar lógica adicional aqui
-      }
     } catch (error) {
       console.error('Erro ao adivinhar a letra:', error);
       setMessage(error.response?.data?.error || 'Erro ao adivinhar a letra.');
@@ -65,11 +58,27 @@ const GamePlay = () => {
     return <div>Carregando...</div>;
   }
 
+  // Cálculo das tentativas usadas
+  const attemptsUsed = gameData.totalAttempts - gameData.attemptsLeft;
+
   return (
-    <div>
-      <h2>Jogo da Adivinhação</h2>
+    <div className='jogo-main'>
+      <h2 className='titulo-configurar-partida'>ADIVINHE A PALAVRA</h2>
       <p>{message}</p>
-      <p>Tentativas Restantes: {gameData.attemptsLeft}</p>
+
+      {/* Renderização dos círculos de tentativas */}
+      <div className="attempts-container">
+        {console.log(gameData)}
+        {Array.from({ length: gameData.totalAttempts }, (_, index) => (
+          <span
+            key={index}
+            className={`attempt-circle ${
+              index < attemptsUsed ? 'used' : 'remaining'
+            }`}
+          ></span>
+        ))}
+      </div>
+
       <p>
         Palavra:{' '}
         {gameData.correctLetters.map((letter, index) => (

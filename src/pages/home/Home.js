@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <>
       <header>
-        <h2 className="app-logo">Roducoins</h2>
+        <img alt='logo-roducoins' src='/images/logo.png' className='logo-roducoins'></img>
         <div className="login-section">
           <span onClick={openLoginModal} style={{ cursor: 'pointer' }}>entrar</span>
           <button className="register-button" onClick={openRegisterModal}>cadastre-se</button>

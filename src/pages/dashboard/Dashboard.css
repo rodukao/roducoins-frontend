@@ -1,0 +1,86 @@
+.login-section{
+    display: flex;
+    align-items: center;
+}
+
+.saldo-roducoins{
+    color: white;
+    font-size: 36px;
+    position: relative;
+    margin-right: 70px;
+    font-family: "Asap", sans-serif;
+    font-weight: 800;
+}
+
+.saldo-roducoins::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: -55px;
+    background-color: #FFC300;
+}
+
+.mais-roducoins-button{
+    display: inline-block;
+    font-family: "Asap", sans-serif;
+    font-size: 24px;
+    background-color: #FB0D50;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 900;
+    margin-left: 40px;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.mais-roducoins-button:hover {
+    background-color: #e90b4a;
+}
+
+.mais-roducoins-button span{
+    font-size: 30px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+
+.greetings{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.greetings p{
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Asap", sans-serif;
+}
+
+.main-dashboard{
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.coluna-um, .coluna-dois{
+    flex-grow: 1;
+}
+
+.coluna-dois{
+    flex-grow: 2;
+}
+
+.coluna-tres{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -1,0 +1,76 @@
+.form-configurar-jogo{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-configurar-jogo input{
+    background-color: #454545;
+}
+
+.titulo-configurar-partida{
+    color: white;
+    font-family: "Asap", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: 0;
+}
+
+.multiplicador{
+    height: 300px;
+    width: 100%;
+    background-color: #313131;
+    border-radius: 5px;
+    position: relative;
+}
+
+.numero-multiplicador{
+    font-family: "Asap", sans-serif;
+    color: white;
+    font-size: 96px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    padding-top: 70px;
+}
+
+.possivel-recompensa{
+    color: white;
+    text-align: center;
+    font-family: "Asap", sans-serif;
+    font-weight: 800;
+}
+
+.multiplicador span{
+    color: #DDDDDD;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    font-family: "Asap", sans-serif;
+    text-align: center;
+    font-size: 14px;
+}
+
+.botao-jogar{
+    color: white;
+    display: block;
+    background-color: #81C307;
+    width: 100%;
+    font-family: "Asap", sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 5px;
+}
+
+.form-configurar-jogo label{
+    color: white;
+    font-family: "Asap", sans-serif;
+    font-weight: 500;
+}
+
+.form-configurar-jogo label input{
+    margin: 10px 0 20px 0;
+}
