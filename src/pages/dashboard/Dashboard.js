@@ -32,7 +32,7 @@ const Dashboard = () => {
       <header>
         <img alt='logo-roducoins' src='/images/logo.png' className='logo-roducoins'></img>
         <div className="login-section">
-          <span className="saldo-roducoins">{userData.roducoins}</span>
+          <span className="saldo-roducoins">{userData.roducoins.toFixed(2)}</span>
           <Link to="/ads" className="mais-roducoins-button">+ Roducoins</Link>
         </div>
       </header>

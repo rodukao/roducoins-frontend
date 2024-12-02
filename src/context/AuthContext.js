@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import api from '../api';
 
 export const AuthContext = createContext();
@@ -8,19 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true); // Novo estado de carregamento
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setAuthenticated(true);
-      fetchUserData();
-    } else {
-      setAuthenticated(false);
-      setUserData(null);
-      setLoading(false); // Autenticação verificada, mas não autenticado
-    }
-  }, []);
-
-  const fetchUserData = () => {
+  const fetchUserData = useCallback(() => {
     api.get('/user/profile')
       .then((res) => {
         setUserData(res.data);
@@ -32,7 +20,19 @@ export const AuthProvider = ({ children }) => {
         setUserData(null);
         setLoading(false); // Carregamento concluído, mas ocorreu um erro
       });
-  };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setAuthenticated(true);
+      fetchUserData();
+    } else {
+      setAuthenticated(false);
+      setUserData(null);
+      setLoading(false); // Autenticação verificada, mas não autenticado
+    }
+  }, [fetchUserData]);
 
   const login = (token) => {
     localStorage.setItem('token', token);

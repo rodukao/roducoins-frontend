@@ -10,20 +10,208 @@
 
 .attempts-container {
     display: flex;
-    gap: 5px; /* Ajuste o espaçamento entre os círculos conforme necessário */
+    gap: 8px; /* Ajuste o espaçamento entre os círculos conforme necessário */
     margin: 10px 0;
   }
   
   .attempt-circle {
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
   }
   
   .attempt-circle.remaining {
-    background-color: green;
+    background-color: #81C307;
   }
   
   .attempt-circle.used {
-    background-color: red;
+    background-color: #FB0D50;
+  }
+
+  .palavra-ativa{
+    display: flex;
+    gap: 12px;
+    padding-top: 40px;
+  }
+
+  .letra-ativa{
+    height: 100px;
+    width: 100px;
+    background-color: #454545;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Asap';
+    font-weight: 900;
+    font-size: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    text-transform: capitalize;
+  }
+
+  .keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+  }
+
+  .keyboard-row {
+    display: flex;
+  }
+
+  .keyboard-row:not(:first-child) {
+    margin-top: 5px; /* Espaçamento entre as linhas */
+  }
+  
+  .second-row {
+    margin-left: 22px; /* Ajuste este valor conforme necessário */
+  }
+  
+  .third-row {
+    margin-left: 50px; /* Ajuste este valor conforme necessário */
+  }
+  
+  .keyboard-key {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #454545;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+  }
+  
+  .keyboard-key.correct {
+    background-color: #81C307;
+  }
+  
+  .keyboard-key.incorrect {
+    background-color: #FB0D50;
+  }
+  
+  .keyboard-key:disabled {
+    cursor: not-allowed;
+  }
+
+  .terminou-message{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "asap";
+  }
+
+  .janela-vitoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+  }
+
+  .janela-vitoria img{
+    max-width: 226px;
+  }
+
+  .text-vitoria{
+    font-size: 64px;
+    font-family: 'Asap';
+    font-weight: 800;
+    padding-top: 20px;
+    color: white;
+  }
+
+  .text-vc-ganhou{
+    font-size: 24px;
+    color: #BFBFBF;
+  }
+
+  .vitoria-text span{
+    background-color: #81C307;
+    color: white;
+    font-size: 60px;
+    font-family: 'Asap';
+    font-weight: 900;
+    width: 220px;
+    height: 90px;
+    line-height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quantidada-ganha{
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 900;
+    padding: 0;
+    margin: 20px 0;
+    font-family: 'Asap';
+  }
+
+  .derrota-text{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    gap: 5px;
+  }
+
+  .derrota-text span{
+    background-color: #FB0D50;
+    color: white;
+    font-size: 60px;
+    font-family: 'Asap';
+    font-weight: 900;
+    width: 220px;
+    height: 90px;
+    line-height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .botoes-novamente{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botao-novamente{
+    padding: 30px 60px;
+    font-size: 30px;
+    font-family: 'Asap';
+    color: white;
+    background-color: #81C307;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+
+  .botao-dashboard{
+    padding: 15px 25px;
+    font-size: 20px;
+    font-family: 'Asap';
+    color: white;
+    background-color: #FB0D50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: 60%;
+    margin-bottom: 40px;
   }

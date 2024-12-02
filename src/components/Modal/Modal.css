@@ -21,7 +21,8 @@
   .modal {
     background: #282c34;
     padding: 40px;
-    max-width: 500px;
+    max-width: 650px;
+    min-width: 500px;
     width: 90%;
     position: relative;
     border-radius: 8px;

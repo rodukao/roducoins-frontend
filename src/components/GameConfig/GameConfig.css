@@ -63,6 +63,12 @@
     text-align: center;
     padding: 30px 0;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.botoes-novamente{
+    display: flex;
 }
 
 .form-configurar-jogo label{
