@@ -4,7 +4,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 60px 40px;
 }
 
 .logo-roducoins{
@@ -36,8 +36,12 @@ header {
 }
 
 .login-section span {
+  color: #ddd;
+  font-weight: 400;
+}
+
+.login-section span:hover{
   color: white;
-  font-weight: 600;
 }
 
 .register-button {
@@ -61,7 +65,7 @@ header {
 }
 
 .main {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -70,7 +74,10 @@ header {
   font-weight: 900;
   color: white;
   font-size: 96px;
-  width: 770px;
+  max-width: 770px;
+  position: relative;
+  z-index: 1;
+  padding: 0 40px;
 }
 
 .main-effect {
@@ -114,7 +121,7 @@ header {
 }
 
 .footer section {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -138,4 +145,49 @@ header {
   font-size: 20px;
   font-weight: 900;
   color: white;
+}
+
+@media (max-width: 760px) {
+
+  header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .logo-roducoins{
+    max-width: 40%;
+  }
+
+  .main{
+    margin-top: 200px;
+    padding: 0 40px;
+  }
+
+  .main h2{
+    font-size: 76px;
+    padding: 0;
+  }
+
+  .main-effect {
+    opacity: 50%;
+  }
+
+  .iniciar-button{
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer{
+    position: absolute;
+    bottom: 0;
+  }
+
+  .footer section{
+    padding: 0 40px;
+  }
 }

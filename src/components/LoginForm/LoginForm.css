@@ -59,6 +59,14 @@ form button{
     cursor: pointer;
 }
 
+button[disabled] {
+    cursor: not-allowed; /* Muda o cursor para indicar que a ação não é permitida */
+  }
+
+form button:hover{
+    background-color: #e90b4a;
+}
+
 .sem-conta{
     text-align: center;
     color: white;
@@ -75,4 +83,9 @@ form button{
     font-size: 1em;
     font-family: "Asap", sans-serif;
     padding: 0;
+  }
+
+  .crie-sua-conta:hover{
+    color: #a7b3c9;
+    background-color: transparent;
   }

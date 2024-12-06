@@ -6,9 +6,11 @@ const Register = ({ onSwitchToLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try{
             await axios.post('https://roducoins-backend.onrender.com/api/auth/register', {
                 username,
@@ -21,6 +23,8 @@ const Register = ({ onSwitchToLogin }) => {
             setPassword('');
         } catch (err) {
             setMessage(err.response.data.error || 'Erro ao registrar.');
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -51,7 +55,7 @@ const Register = ({ onSwitchToLogin }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type='submit'>Comece já!</button>
+                <button type='submit' disabled={loading}>{loading ? 'Conectando...' : 'Comece já!'}</button>
                 <p className='sem-conta'>
                     Já tem uma conta? <button type="button" className='crie-sua-conta' onClick={onSwitchToLogin}>Faça login!</button>
                 </p>

@@ -9,11 +9,13 @@ const LoginForm = ({ onSwitchToRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
     const {login} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try{
             const res = await axios.post('https://roducoins-backend.onrender.com/api/auth/login', {
                 email,
@@ -24,6 +26,8 @@ const LoginForm = ({ onSwitchToRegister }) => {
         } catch(err){
             console.log('Usuário não encontrado')
             setMessage(err.response.data.error || 'Erro ao fazer login.');
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -47,8 +51,8 @@ const LoginForm = ({ onSwitchToRegister }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <span>Esqueci a minha senha</span>
-                <button type='submit'>Entrar</button>
+                <span>Esqueci a minha senha (em breve)</span>
+                <button type='submit' disabled={loading}>{loading ? 'Conectando...' : 'Entrar'}</button>
                 <p className='sem-conta'>Ainda não tem uma conta? <button type="button" className='crie-sua-conta' onClick={onSwitchToRegister}>Crie uma agora!</button></p>
             </form>
         </div>

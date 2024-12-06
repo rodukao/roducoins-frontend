@@ -19,14 +19,10 @@ const Dashboard = () => {
     navigate('/');
   };
 
-  if (loading) {
+  if (loading || !userData) {
     return <div>Carregando...</div>;
   }
-
-  if (!authenticated) {
-    return null; // Ou você pode retornar um componente indicando que o usuário não está autenticado
-  }
-
+  
   return (
     <div>
       <header>
