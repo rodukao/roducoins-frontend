@@ -156,20 +156,27 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 20px 20px;
+    z-index: 2;
+    background-color: #555;
   }
 
   .logo-roducoins{
-    max-width: 40%;
+    max-width: 30%;
   }
 
+  .register-button {
+    padding: 10px 20px;
+    margin-left: 20px;
+}
+
   .main{
-    margin-top: 200px;
+    margin-top: 120px;
     padding: 0 40px;
   }
 
   .main h2{
-    font-size: 76px;
+    font-size: 56px;
     padding: 0;
   }
 
@@ -180,11 +187,12 @@ header {
   .iniciar-button{
     position: relative;
     z-index: 1;
+    margin-bottom: 60px;
   }
 
   .footer{
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    height: 140px;
   }
 
   .footer section{
