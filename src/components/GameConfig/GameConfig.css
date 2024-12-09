@@ -80,3 +80,33 @@
 .form-configurar-jogo label input{
     margin: 10px 0 20px 0;
 }
+
+@media (max-width: 760px) {
+    .form-configurar-jogo{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .multiplicador{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .numero-multiplicador{
+        font-size: 40px;
+        padding-top: 0;
+    }
+
+    .botao-jogar{
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .form-configurar-jogo label input {
+        width: 91%;
+    }
+}

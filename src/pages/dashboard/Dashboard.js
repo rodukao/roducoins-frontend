@@ -26,7 +26,7 @@ const Dashboard = () => {
   return (
     <div>
       <header>
-        <img alt='logo-roducoins' src='/images/logo.png' className='logo-roducoins'></img>
+        <img alt='logo-roducoins' src='/images/logo.png' className='logo-roducoins logo-dashboard'></img>
         <div className="login-section">
           <span className="saldo-roducoins">{userData.roducoins.toFixed(2)}</span>
           <Link to="/ads" className="mais-roducoins-button">+ Roducoins</Link>
@@ -39,7 +39,7 @@ const Dashboard = () => {
       {userData ? (
         <div className="main-dashboard">
           <div className='coluna-um'>
-            <p></p>
+            <p>Aqui vai ter o ranking</p>
           </div>
           <div className='coluna-dois'>
             <GameConfig />

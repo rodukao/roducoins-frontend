@@ -1,5 +1,5 @@
 .jogo-main{
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -215,3 +215,60 @@
     max-width: 60%;
     margin-bottom: 40px;
   }
+
+  @media (max-width: 760px) {
+    .jogo-main{
+      max-width: 1200px;
+    }
+
+    .palavra-ativa {
+      gap: 5px;
+  }
+
+  .letra-ativa{
+    width: 50px;
+    height: 50px;
+    font-size: 34px;
+  }
+
+  .keyboard-key{
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+    font-size: 16px;
+  }
+
+  .keyboard-row:not(:first-child) {
+    margin-top: 0px;
+  }
+  .second-row {
+    margin-left: 0px;
+  }
+
+  .third-row{
+    margin-left: 0;
+  }
+
+  .text-vitoria{
+    font-size: 40px;
+  }
+
+  .text-vc-ganhou {
+    font-size: 18px;
+  }
+
+  .quantidada-ganha{
+    font-size: 30px;
+  }
+
+  .botao-novamente{
+    padding: 20px;
+    font-size: 24px;
+  }
+
+  .botao-dashboard {
+    padding: 15px 25px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
