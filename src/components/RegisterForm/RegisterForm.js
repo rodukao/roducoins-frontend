@@ -12,7 +12,7 @@ const Register = ({ onSwitchToLogin }) => {
         e.preventDefault();
         setLoading(true);
         try{
-            await axios.post('https://roducoins-backend.onrender.com/api/auth/register', {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
                 username,
                 email,
                 password

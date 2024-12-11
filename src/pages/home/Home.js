@@ -4,10 +4,12 @@ import './Home.css';
 import Modal from '../../components/Modal/Modal';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import ForgotPasswordForm from '../../components/ForgotPasswordForm/ForgotPasswordForm';
 
 const Home = () => {
   const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
   const [registerModalIsOpen, setRegisterModalIsOpen] = useState(false);
+  const [ForgotModalIsOpen, setForgotModalIsOpen] = useState(false);
 
   const openLoginModal = () => {
     setLoginModalIsOpen(true);
@@ -25,14 +27,26 @@ const Home = () => {
     setRegisterModalIsOpen(false);
   };
 
+  const closeForgotModal = () => {
+    setForgotModalIsOpen(false);
+  }
+
   const switchToRegisterModal = () => {
     setLoginModalIsOpen(false);
+    setForgotModalIsOpen(false);
     setRegisterModalIsOpen(true);
   };
 
   const switchToLoginModal = () => {
     setRegisterModalIsOpen(false);
+    setForgotModalIsOpen(false);
     setLoginModalIsOpen(true);
+  };
+
+  const switchToForgotModal = () => {
+    setRegisterModalIsOpen(false);
+    setLoginModalIsOpen(false);
+    setForgotModalIsOpen(true);
   };
 
   return (
@@ -71,7 +85,7 @@ const Home = () => {
         overlayClassName="overlay"
       >
         <button onClick={closeLoginModal} className="modal-close-button">&times;</button>
-        <LoginForm onSwitchToRegister={switchToRegisterModal} />
+        <LoginForm onSwitchToRegister={switchToRegisterModal} onSwitchToForgot={switchToForgotModal}/>
       </Modal>
 
       {/* Modal de Registro */}
@@ -84,6 +98,18 @@ const Home = () => {
       >
         <button onClick={closeRegisterModal} className="modal-close-button">&times;</button>
         <RegisterForm onSwitchToLogin={switchToLoginModal} />
+      </Modal>
+
+      {/* Modal de Esqueceu senha */}
+      <Modal
+        isOpen={ForgotModalIsOpen}
+        onRequestClose={closeForgotModal}
+        contentLabel="Forgot Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <button onClick={closeForgotModal} className="modal-close-button">&times;</button>
+        <ForgotPasswordForm />
       </Modal>
     </>
   );

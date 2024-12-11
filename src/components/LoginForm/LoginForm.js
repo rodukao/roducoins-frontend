@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './LoginForm.css';
 
-const LoginForm = ({ onSwitchToRegister }) => {
+const LoginForm = ({ onSwitchToRegister, onSwitchToForgot }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -17,7 +17,7 @@ const LoginForm = ({ onSwitchToRegister }) => {
         e.preventDefault();
         setLoading(true);
         try{
-            const res = await axios.post('https://roducoins-backend.onrender.com/api/auth/login', {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
                 email,
                 password,
             });
@@ -51,7 +51,7 @@ const LoginForm = ({ onSwitchToRegister }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <span>Esqueci a minha senha (em breve)</span>
+                <span><button type='button' className='crie-sua-conta' onClick={onSwitchToForgot}>Esqueci a minha senha</button></span>
                 <button type='submit' disabled={loading}>{loading ? 'Conectando...' : 'Entrar'}</button>
                 <p className='sem-conta'>Ainda não tem uma conta? <button type="button" className='crie-sua-conta' onClick={onSwitchToRegister}>Crie uma agora!</button></p>
             </form>

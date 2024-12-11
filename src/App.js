@@ -9,6 +9,7 @@ import Ads from './pages/Ads';
 import WatchAd from './pages/WatchAd';
 import GameConfig from './pages/GameConfig';
 import GamePlay from './pages/gameplay/GamePlay';
+import ResetPasswordForm from './components/ResetPasswordForm/ResetPasswordForm';
 
 console.log('REACT_APP_TEST_VARIABLE:', process.env.REACT_APP_TEST_VARIABLE);
 
@@ -20,6 +21,7 @@ function App(){
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />} />
+        <Route path='/reset-password' element={<ResetPasswordForm />} />
 
         {/* Rotas protegidas */}
         <Route path="/*" element={<PrivateRoute />}>
