@@ -18,7 +18,7 @@ const GameConfig = () => {
             const response = await api.post('/game/start', {length, attempts, bet});
             const {gameId, gameData} = response.data;
             // Navegar para a página do jogo, passando os dados necessários
-            navigate('/game/play', { state: { gameId, gameData } });
+            navigate('/game/play', { state: { gameId, gameData, length, attempts, bet } });
         } catch (error){
             console.error("Erro ao iniciar o jogo: ", error);
         }

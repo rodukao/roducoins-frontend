@@ -65,6 +65,11 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    transition: all .2s;
+}
+
+.botao-jogar:hover{
+    background-color: #90d313;
 }
 
 .botoes-novamente{

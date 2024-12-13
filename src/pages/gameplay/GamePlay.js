@@ -19,13 +19,18 @@ const GamePlay = () => {
   const secondRow = 'asdfghjkl'.split('');
   const thirdRow = 'zxcvbnm'.split('');
 
-  
+  const [length, setLength] = useState(null);
+  const [attempts, setAttempts] = useState(null);
+  const [bet, setBet] = useState(null);
 
   useEffect(() => {
     console.log('location.state:', location.state);
     if (location.state && location.state.gameId && location.state.gameData) {
       setGameId(location.state.gameId);
       setGameData(location.state.gameData);
+      setLength(location.state.length);
+      setAttempts(location.state.attempts);
+      setBet(location.state.bet);
     } else {
       navigate('/game/config');
     }
@@ -73,6 +78,22 @@ const GamePlay = () => {
     } catch (error) {
       console.error('Erro ao desistir do jogo:', error);
       // Exiba uma mensagem de erro se necessário
+    }
+  };
+
+  const handlePlayAgain = async () => {
+    try {
+      const response = await api.post('/game/start', {
+        length,
+        attempts,
+        bet
+      });
+      const { gameId: newGameId, gameData: newGameData } = response.data;
+      // Redirecionar o usuário direto para a tela do jogo com o novo jogo iniciado
+      navigate('/game/play', { state: { gameId: newGameId, gameData: newGameData, length, attempts, bet } });
+    } catch (error) {
+      console.error('Erro ao iniciar um novo jogo:', error);
+      // Caso queira, pode exibir uma mensagem ou redirecionar para config
     }
   };
 
@@ -192,7 +213,7 @@ const GamePlay = () => {
             </div>
           )}
           <div className='botoes-novamente'>
-            <button className='botao-novamente' onClick={() => navigate('/game/config')}>Jogar Novamente</button>
+            <button className='botao-novamente' onClick={handlePlayAgain}>Jogar Novamente</button>
             <button className='botao-dashboard' onClick={() => navigate('/dashboard')}>Voltar ao Dashboard</button> 
           </div>
           
