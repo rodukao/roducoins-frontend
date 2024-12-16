@@ -11,8 +11,6 @@ import GameConfig from './pages/GameConfig';
 import GamePlay from './pages/gameplay/GamePlay';
 import ResetPasswordForm from './components/ResetPasswordForm/ResetPasswordForm';
 
-console.log('REACT_APP_TEST_VARIABLE:', process.env.REACT_APP_TEST_VARIABLE);
-
 function App(){
   return(
     <Router>

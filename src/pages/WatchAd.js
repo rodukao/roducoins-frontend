@@ -69,7 +69,12 @@ const WatchAd = () => {
         {`(adsbygoogle = window.adsbygoogle || []).push({});`}
       </script>
 
-      
+      <script async="async" data-cfasync="false" src="//pl25294910.profitablecpmrate.com/de6d5ff83226364af0c66a6bca70b0a8/invoke.js"></script>
+      <div id="container-de6d5ff83226364af0c66a6bca70b0a8"></div>
+
+      <p>Teste</p>
+
+
       {message && <p>{message}</p>}
     </div>
   );
