@@ -16,6 +16,20 @@ const WatchAd = () => {
       .catch((err) => console.error(err));
   }, [adId]);
 
+  useEffect(() => {
+    // Adiciona o script do AdSense quando o componente é montado
+    const script = document.createElement('script');
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635710182250146";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+
+    return () => {
+      // Remove o script ao desmontar o componente para evitar conflitos
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleVideoEnd = () => {
     api.post(`/ads/watch/${adId}`)
       .then((res) => {
@@ -41,6 +55,21 @@ const WatchAd = () => {
         <source src={ad.videoUrl} type="video/mp4" />
         Seu navegador não suporta o elemento de vídeo.
       </video>
+
+      {/* Anúncio AdSense */}
+      <div style={{ marginTop: '20px' }}>
+        <ins className="adsbygoogle"
+             style={{ display: 'block' }}
+             data-ad-client="ca-pub-2635710182250146"
+             data-ad-slot="4290771865"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+      <script>
+        {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+      </script>
+
+      
       {message && <p>{message}</p>}
     </div>
   );
