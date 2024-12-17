@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import GameConfig from '../../components/GameConfig/GameConfig';
+import AdComponent from '../../components/AdComponent';
 
 const Dashboard = () => {
   const { authenticated, logout, userData, loading } = useContext(AuthContext);
@@ -29,7 +30,7 @@ const Dashboard = () => {
         <img alt='logo-roducoins' src='/images/logo.png' className='logo-roducoins logo-dashboard'></img>
         <div className="login-section">
           <span className="saldo-roducoins">{userData.roducoins.toFixed(2)}</span>
-          <Link to="/ads" className="mais-roducoins-button">+ Roducoins</Link>
+          <button className="mais-roducoins-button">+ Roducoins</button>
         </div>
       </header>
       <section className='greetings'>
@@ -48,6 +49,9 @@ const Dashboard = () => {
       ) : (
         <div>Carregando dados do usuário...</div>
       )}
+
+      {/* AdSense Bloco de Anúncios */}
+      <AdComponent dataAdSlot='X7XXXXXX5X' />
     </div>
   );
 };
