@@ -51,7 +51,7 @@ const Dashboard = () => {
       )}
 
       {/* AdSense Bloco de Anúncios */}
-      <AdComponent dataAdSlot='X7XXXXXX5X' />
+      <AdComponent dataAdSlot='7430675178' />
     </div>
   );
 };
